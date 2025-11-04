@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
+import { withContentlayer } from "next-contentlayer";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    // reactCompiler включим позже, когда пройдём MWP
+    // ppr (Partial Prerendering) тоже подключим на нужных маршрутах
+  },
+  // turbopack: {}, // <- сообщаем Next, что Turbopack сконфигурирован
 };
 
-export default nextConfig;
+export default withContentlayer(nextConfig);
